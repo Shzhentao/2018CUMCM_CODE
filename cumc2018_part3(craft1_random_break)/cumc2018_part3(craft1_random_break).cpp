@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+#include <random>
+#include <chrono>
 using namespace std;
 
 int pro_s[3] = { 560, 580, 545 }; //加工时间
@@ -51,7 +53,12 @@ double randuni() {
 
 int main()
 {
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    default_random_engine gen(seed);
+    normal_distribution<double> dis(900, 1);
+    srand(seed);
     int zuhao = 0;
+    int show = 1;
     while (scanf("%d", &zuhao)) {
         if (zuhao == -1) break;
         if (zuhao > 3 || zuhao < 1) continue;
@@ -65,10 +72,8 @@ int main()
         int pos = 0, next_pos = 0;//小车起始位置
         int num = 0; //成品数量
         int T[8] = { 0 }; //当前状态到达其他CNC加工台的代价
-//        double th = 0;
-//        srand(100);
-//        th = randuni();
-//        cout << th;
+        int num_error = 0;
+
         for (int i = 0; i < 8; i++) {
             int temp = i / 2;
             for (int j = 0; j < 8; j++) {
@@ -89,14 +94,10 @@ int main()
             }
             /**********选择过程***********/
             next_pos = min_index(T);//选择代价最小的
-
             //起到了初始化的作用
             pos = next_pos;
-
             time += T[next_pos];//时间需要延长这个过程的时间
-
             if (time > end_time) break;
-
             if (B[next_pos]) {
                 offtime[next_pos][numm[next_pos]] = time - rep[next_pos] - B[next_pos] * put_down; //除去上下料时间和清洗时间
                 sy[num] = next_pos;
@@ -105,17 +106,28 @@ int main()
             }
             gotime[next_pos][numm[next_pos]] = time - rep[next_pos] - B[next_pos] * put_down; //除去上下料时间和清洗时间
             B[next_pos] = 1;
-            S[next_pos] = pro - B[next_pos] * put_down;
+            if (randuni() <= 0.01) {
+                S[next_pos] = pro * randuni();
+                double tempp = 0;
+                tempp = dis(gen);
+                while (tempp > 1200 || tempp < 600) tempp = dis(gen);
+                S[next_pos] += tempp;
+                B[next_pos] = 0;
+                num_error++;
+            }
+            else S[next_pos] = pro - B[next_pos] * put_down;
             for (int i = 0; i < 8; i++) {
                 if (i != next_pos) {
                     S[i] -= T[next_pos];
                 }
             }
         }
-        out(num);
-        cout << "----the total number----" << endl;
+        if (show)
+            out(num);
+        cout << "-------the total number-------" << endl;
         cout << num << endl;
+        cout << "----the total error number----" << endl;
+        cout << num_error << endl;
     }
     return 0;
 }
-
