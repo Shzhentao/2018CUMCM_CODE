@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{9ea93f41-6dbf-411d-a12a-4cfe4cb5fb3c}</ProjectGuid>
-    <RootNamespace>My2018CUMCMCODE</RootNamespace>
+    <RootNamespace>cumc2018_part1(find_the_highest_yield_of_carft1)</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>cumc2018_part1(find_the_highest_yield_of_carft1)</ProjectName>
   </PropertyGroup>
