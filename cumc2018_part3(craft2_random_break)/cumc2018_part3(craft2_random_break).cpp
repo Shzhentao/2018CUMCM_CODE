@@ -105,12 +105,13 @@ double randuni() {
 
 int main()
 {
-    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    unsigned seed;
+    seed = unsigned(chrono::system_clock::now().time_since_epoch().count());
     default_random_engine gen(seed);
     normal_distribution<double> dis(900, 1);
     srand(seed);
     int zuhao = 0;
-    while (scanf("%d", &zuhao)) {
+    while (scanf_s("%d", &zuhao)) {
         if (zuhao == -1) break;
         if (zuhao > 3 || zuhao < 1) continue;
         zuhao--;
@@ -174,11 +175,11 @@ int main()
                 gotime1[next_pos][numm[next_pos]] = time - rep[next_pos]; //除去上下料时间
                 B[next_pos][0] = 1;
                 if (randuni() <= 0.01) {
-                    S[next_pos] = pro1 * randuni();
+                    S[next_pos] = int(pro1 * randuni());
                     double tempp = 0;
                     tempp = dis(gen);
                     while (tempp > 1200 || tempp < 600) tempp = dis(gen);
-                    S[next_pos] += tempp;
+                    S[next_pos] += int(tempp);
                     B[next_pos][0] = 0;
                     num_error1++;
                 }
@@ -222,11 +223,11 @@ int main()
                 B[next_pos][0] = 1;
                 B[next_pos][1] = num1 - 1;
                 if (randuni() <= 0.01) {
-                    S[next_pos] = pro2 * randuni();
+                    S[next_pos] = int(pro2 * randuni());
                     double tempp = 0;
                     tempp = dis(gen);
                     while (tempp > 1200 || tempp < 600) tempp = dis(gen);
-                    S[next_pos] += tempp;
+                    S[next_pos] += int(tempp);
                     B[next_pos][0] = 0;
                     num_error2++;
                 }

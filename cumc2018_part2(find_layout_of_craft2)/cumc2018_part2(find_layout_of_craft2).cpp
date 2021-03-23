@@ -49,7 +49,7 @@ int min_index2(int* T, int num6) {
 int main()
 {
     int zuhao = 0;
-    while (scanf("%d", &zuhao)) {
+    while (scanf_s("%d", &zuhao)) {
         if (zuhao == -1) break;
         if (zuhao > 3 || zuhao < 1) continue;
         zuhao--;

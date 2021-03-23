@@ -99,7 +99,7 @@ void out(int num1, int num2, int num4) {
 int main()
 {
     int zuhao = 1;
-    while (scanf("%d", &zuhao)) {
+    while (scanf_s("%d", &zuhao)) {
         if (zuhao == -1) break;
         if (zuhao > 3 || zuhao < 1) continue;
         zuhao--;
