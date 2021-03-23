@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9ea93f41-6dbf-411d-a12a-4cfe4cb5fb3c}</ProjectGuid>
-    <RootNamespace>My2018CUMCMCODE</RootNamespace>
+    <ProjectGuid>{6fe2433d-1234-43d6-b9ff-b28d8767ded0}</ProjectGuid>
+    <RootNamespace>cumc2018part1findthehighestyieldofcarft1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>cumc2018_part1(find_the_highest_yield_of_carft1)</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2018CUMCM_CODE.cpp" />
+    <ClCompile Include="cumc2018_part1(find_the_highest_yield_of_carft1).cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

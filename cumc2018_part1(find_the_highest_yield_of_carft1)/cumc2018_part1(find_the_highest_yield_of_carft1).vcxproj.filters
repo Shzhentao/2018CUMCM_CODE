@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2018CUMCM_CODE.cpp">
+    <ClCompile Include="cumc2018_part1(find_the_highest_yield_of_carft1).cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
