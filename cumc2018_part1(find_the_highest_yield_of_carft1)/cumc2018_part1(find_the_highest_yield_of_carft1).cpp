@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 int pro_s[3] = { 560, 580, 545 }; //加工时间
